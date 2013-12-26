@@ -1,0 +1,18 @@
+{
+  "name": "visualizeBitcoinAverage",
+  "version": "0.0.0",
+  "description": "Visualizations for bitcoinaverage.com",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rowanu/visualizeBitcoinAverage.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/rowanu/visualizeBitcoinAverage/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-gh-pages": "~0.9.0"
+  }
+}
