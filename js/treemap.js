@@ -1,10 +1,11 @@
 /*jslint browser: true */
-/*globals d3 */
+/*globals d3, Rainbow */
 var margin = {top: 40, right: 10, bottom: 10, left: 10},
   width = 960 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom;
 
-var color = d3.scale.category20();
+var rainbow = new Rainbow();
+rainbow.setSpectrum('#BDDAFA', '#2C5779');
 
 var treemap = d3.layout.treemap()
   .size([width, height])
@@ -50,14 +51,26 @@ function position() {
 var url = 'https://api.bitcoinaverage.com/exchanges/' + getSelectedCurrency(window.location.href);
 d3.json(url, function (err, exchanges) {
   if (err) { console.error(err); }
-  // var timestamp = exchanges.timestamp;
-  var volumes = volumesObjectToArray(exchanges);
+  var timestamp = exchanges.timestamp;
+  var i = 0, colors = [], volumes = volumesObjectToArray(exchanges);
 
-  var node = div.datum(volumes).selectAll(".node")
+  rainbow.setNumberRange(0, volumes.children.length);
+
+  for (i; i < volumes.children.length; i += 1) {
+    colors[i] = rainbow.colorAt(i);
+  }
+
+  div.datum(volumes).selectAll(".node")
     .data(treemap.nodes)
   .enter().append("div")
     .attr("class", "node")
     .call(position)
-    .style("background", function (d) { return color(d.volume); })
+    // Ignore 'volumes' parent entry for color calculations
+    .filter(function (d) { return typeof d.volume === 'number'; })
+    .sort(function (a, b) { return a.volume - b.volume; })
+    .style("background", function (d, i) { console.log(d.name + ' ' + d.volume); return '#' + colors[i]; })
     .text(function(d) { return d.name; });
+
+  d3.select('#timestamp')
+    .text(timestamp);
 });
