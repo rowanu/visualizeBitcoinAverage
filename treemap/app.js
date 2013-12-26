@@ -1,3 +1,4 @@
+/*jslint browser: true */
 /*globals d3, colorbrewer */
 var margin = {top: 40, right: 10, bottom: 10, left: 10},
   width = 960 - margin.left - margin.right,
@@ -16,6 +17,12 @@ var div = d3.select('body').append('div')
   .style('height', (height + margin.top + margin.bottom) + 'px')
   .style('left', margin.left + 'px')
   .style('top', margin.top + 'px');
+
+// Gets the selected currency from URL params, or defalut to 'USD'
+function getSelectedCurrency(path) {
+  var selected = path.split('#!')[1].replace('/', '') || 'USD';
+  return selected;
+}
 
 function volumesObjectToArray(exchanges) {
   var exchange, volumes = {name: 'volumes'};
@@ -39,7 +46,8 @@ function position() {
       .style("height", function(d) { return Math.max(0, d.dy - 1) + "px"; });
 }
 
-d3.json('https://api.bitcoinaverage.com/exchanges/USD', function (err, exchanges) {
+var url = 'https://api.bitcoinaverage.com/exchanges/' + getSelectedCurrency(window.location.href);
+d3.json(url, function (err, exchanges) {
   if (err) { console.error(err); }
   // var timestamp = exchanges.timestamp;
   var volumes = volumesObjectToArray(exchanges);
