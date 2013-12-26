@@ -20,8 +20,9 @@ var div = d3.select('body').append('div')
 
 // Gets the selected currency from URL params, or defalut to 'USD'
 function getSelectedCurrency(path) {
-  var selected = path.split('#!')[1].replace('/', '') || 'USD';
-  return selected;
+  var parts = path.split('#!');
+  var selected = (parts.length > 1) ? parts[1] : 'USD';
+  return selected.replace('/', '');
 }
 
 function volumesObjectToArray(exchanges) {
