@@ -1,15 +1,14 @@
-/*globals d3 */
+/*globals d3, colorbrewer */
 var margin = {top: 40, right: 10, bottom: 10, left: 10},
   width = 960 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom;
 
-var color = d3.scale.category10();
+var color = d3.scale.category20();
 
 var treemap = d3.layout.treemap()
   .size([width, height])
-  .value(function(d) { console.log(d.name + ': ' + d.volume);return d.volume; });
-
-console.log(treemap.sort());
+  .sort(function (a, b) { return a.volume - b.volume; })
+  .value(function(d) { return d.volume; });
 
 var div = d3.select('body').append('div')
   .style('position', 'relative')
@@ -30,7 +29,6 @@ function volumesObjectToArray(exchanges) {
       });
     }
   }
-  console.log(volumes);
   return volumes;
 }
 
@@ -41,7 +39,7 @@ function position() {
       .style("height", function(d) { return Math.max(0, d.dy - 1) + "px"; });
 }
 
-d3.json('USD-sample.json', function (err, exchanges) {
+d3.json('https://api.bitcoinaverage.com/exchanges/USD', function (err, exchanges) {
   if (err) { console.error(err); }
   // var timestamp = exchanges.timestamp;
   var volumes = volumesObjectToArray(exchanges);
@@ -51,6 +49,6 @@ d3.json('USD-sample.json', function (err, exchanges) {
   .enter().append("div")
     .attr("class", "node")
     .call(position)
-    .style("background", function (d) { return color(d.name); })
+    .style("background", function (d) { return color(d.volume); })
     .text(function(d) { return d.name; });
 });
