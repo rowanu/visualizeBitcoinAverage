@@ -1,0 +1,133 @@
+{
+  "anx_hk": {
+    "rates": {
+      "ask": 681.82,
+      "bid": 621.79,
+      "last": 701.04
+    },
+    "source": "bitcoincharts",
+    "volume_btc": 5.89,
+    "volume_percent": 0.03
+  },
+  "bitfinex": {
+    "rates": {
+      "ask": 664.0,
+      "bid": 663.02,
+      "last": 664.0
+    },
+    "source": "api",
+    "volume_btc": 1191.36,
+    "volume_percent": 5.91
+  },
+  "bitkonan": {
+    "rates": {
+      "ask": 650.0,
+      "bid": 555.0,
+      "last": 650.0
+    },
+    "source": "api",
+    "volume_btc": 1.03,
+    "volume_percent": 0.01
+  },
+  "bitstamp": {
+    "rates": {
+      "ask": 663.88,
+      "bid": 662.9,
+      "last": 662.9
+    },
+    "source": "api",
+    "volume_btc": 5133.4,
+    "volume_percent": 25.45
+  },
+  "btce": {
+    "rates": {
+      "ask": 658.78,
+      "bid": 658.76,
+      "last": 658.76
+    },
+    "source": "api",
+    "volume_btc": 8683.97,
+    "volume_percent": 43.06
+  },
+  "campbx": {
+    "rates": {
+      "ask": 657.0,
+      "bid": 647.01,
+      "last": 657.0
+    },
+    "source": "bitcoincharts",
+    "volume_btc": 79.94,
+    "volume_percent": 0.4
+  },
+  "cryptotrade": {
+    "rates": {
+      "ask": 684.0,
+      "bid": 658.0,
+      "last": 657.0
+    },
+    "source": "api",
+    "volume_btc": 7.6,
+    "volume_percent": 0.04
+  },
+  "justcoin": {
+    "rates": {
+      "ask": 670.0,
+      "bid": 654.9,
+      "last": 670.64
+    },
+    "source": "api",
+    "volume_btc": 8.89,
+    "volume_percent": 0.04
+  },
+  "kraken": {
+    "rates": {
+      "ask": 669.27,
+      "bid": 665.0,
+      "last": 671.0
+    },
+    "source": "api",
+    "volume_btc": 2.9,
+    "volume_percent": 0.01
+  },
+  "localbitcoins": {
+    "rates": {
+      "ask": 700.4,
+      "bid": 700.4,
+      "last": 700.4
+    },
+    "source": "api",
+    "volume_btc": 89.86,
+    "volume_percent": 0.45
+  },
+  "mtgox": {
+    "rates": {
+      "ask": 700.99,
+      "bid": 697.0,
+      "last": 697.0
+    },
+    "source": "api",
+    "volume_btc": 4960.66,
+    "volume_percent": 24.6
+  },
+  "rocktrading": {
+    "rates": {
+      "ask": 658.0,
+      "bid": 610.01,
+      "last": 657.99
+    },
+    "source": "api",
+    "volume_btc": 0.11,
+    "volume_percent": 0.0
+  },
+  "timestamp": "Wed, 25 Dec 2013 20:18:08 -0000",
+  "vircurex": {
+    "rates": {
+      "ask": 660.0,
+      "bid": 650.0,
+      "last": 650.0
+    },
+    "source": "api",
+    "volume_btc": 1.87,
+    "volume_percent": 0.01
+  }
+}
