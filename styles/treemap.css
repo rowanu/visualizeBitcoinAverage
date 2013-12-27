@@ -6,3 +6,14 @@
   position: absolute;
   text-indent: 2px;
 }
+
+.currencies ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+.currencies ul li {
+  display: inline;
+}
