@@ -1,6 +1,6 @@
 /*jslint browser: true */
 /*globals d3, Rainbow */
-var margin = {top: 40, right: 10, bottom: 10, left: 10},
+var margin = {top: 10, right: 10, bottom: 10, left: 10},
   width = 960 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom;
 
@@ -48,7 +48,10 @@ function position() {
       .style("height", function(d) { return Math.max(0, d.dy - 1) + "px"; });
 }
 
-var url = 'https://api.bitcoinaverage.com/exchanges/' + getSelectedCurrency(window.location.href);
+var currency = getSelectedCurrency(window.location.href)
+var url = 'https://api.bitcoinaverage.com/exchanges/' + currency;
+d3.select('.selected').text(currency);
+
 d3.json(url, function (err, exchanges) {
   if (err) { console.error(err); }
   var timestamp = exchanges.timestamp;
@@ -71,6 +74,12 @@ d3.json(url, function (err, exchanges) {
     .style("background", function (d, i) { console.log(d.name + ' ' + d.volume); return '#' + colors[i]; })
     .text(function(d) { return d.name; });
 
-  d3.select('#timestamp')
+  // Update interface
+  d3.select('.timestamp')
     .text(timestamp);
+});
+
+d3.select('.currencies').on('click', function () {
+  console.log(d3.event.target.innerHTML);
+  // window.location.hash()
 });

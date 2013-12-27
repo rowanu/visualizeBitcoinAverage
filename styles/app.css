@@ -10,3 +10,7 @@ body {
   margin-bottom: 4em;
   width: 960px;
 }
+
+a {
+  text-decoration: none;
+}
