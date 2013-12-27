@@ -78,8 +78,3 @@ d3.json(url, function (err, exchanges) {
   d3.select('.timestamp')
     .text(timestamp);
 });
-
-d3.select('.currencies').on('click', function () {
-  console.log(d3.event.target.innerHTML);
-  // window.location.hash()
-});
